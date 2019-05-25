@@ -26,5 +26,5 @@ docker run --rm --name flask-demo-app -p 5000:5000 flask-demo-app
 
 ### Running the application straight from the Docker Hub
 ```bash
-docker run --rm --name flask-demo-app -p 5000:5000 flask-demo-app:1.0.0
+docker run --rm --name flask-demo-app -p 5000:5000 ivuk/flask-demo-app:1.0.0
 ```
