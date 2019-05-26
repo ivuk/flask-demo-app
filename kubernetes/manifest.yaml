@@ -1,0 +1,32 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask-demo-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: flask-demo-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5000
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flask-demo-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flask-demo-app
+    spec:
+      containers:
+      - name: flask-demo-app
+        image: ivuk/flask-demo-app:1.0.0
+        ports:
+        - containerPort: 5000
+          protocol: TCP
